@@ -1,6 +1,18 @@
 package projeto;
 
 public abstract class Pessoa{
+
+    // Atributos
+    protected String nome;
+    protected int   idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Gets e sets
     public String getNome() {
         return nome;
     }
@@ -17,11 +29,4 @@ public abstract class Pessoa{
         this.idade = idade;
     }
 
-    protected String nome;
-    protected int   idade;
-
-    public Pessoa(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
-    }
 }

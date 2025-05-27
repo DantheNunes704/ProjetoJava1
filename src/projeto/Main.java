@@ -32,13 +32,13 @@ public class Main {
     public static void main(String[] args) {
         char opcao = ' ';
         do {
-            System.out.print("\nO que deseja realizar?\nC - Cadastro\nB - Busca\nS - Sair\nE - Excluir\n>");
+            System.out.print("\nO que deseja realizar?\nC - Cadastro\nB - Busca\nS - Sair\nE - Excluir\n> ");
             opcao = kbd.next().charAt(0); // lê o comando do usuário
             switch (opcao) {
 
-                case 'C': //cadastro *****
+                case 'C': // Cadastro *****
                 {
-                    System.out.print("\nO que deseja cadastrar?\nC - Cliente\nP - Produto\nF - Funcionário\n>");
+                    System.out.print("\nO que deseja cadastrar?\nC - Cliente\nP - Produto\nF - Funcionário\n> ");
                     opcao = kbd.next().charAt(0);
                     switch (opcao) {
 
@@ -69,13 +69,13 @@ public class Main {
 
                 case 'E': // Exclusão *****
                 {
-                    System.out.print("\nO que deseja excluir?\nC - Cliente\nP - Produto\nF - Funcionário\n>");
+                    System.out.print("\nO que deseja excluir?\nC - Cliente\nP - Produto\nF - Funcionário\n> ");
                     opcao = kbd.next().charAt(0);
                     switch (opcao)
                     {
                         case 'C': // Exclusão cliente *****
                         {
-                            System.out.print("\nQual o nome do cliente que deseja excluir?>");
+                            System.out.print("\nQual o nome do cliente que deseja excluir?\n> ");
 
                             kbd.nextLine();
                             String clienteExcluir = kbd.nextLine();
@@ -88,7 +88,7 @@ public class Main {
 
                         case 'P': // Exclusão produto *****
                         {
-                            System.out.print("\nQual a descrição do produto que deseja excluir?>");
+                            System.out.print("\nQual a descrição do produto que deseja excluir?\n> ");
 
                             kbd.nextLine();
                             String produtoExcluir = kbd.nextLine();
@@ -114,7 +114,7 @@ public class Main {
 
                         case 'F': // Exclusão funcionário
                          {
-                             System.out.print("\nQual o nome do funcionário que deseja excluir?>");
+                             System.out.print("\nQual o nome do funcionário que deseja excluir?\n> ");
 
                              kbd.nextLine();
                              String funcionarioExcluir = kbd.nextLine();
@@ -144,7 +144,7 @@ public class Main {
 
                 case 'B': // Buscar
                  {
-                     System.out.print("\nO que deseja buscar?\nC - Cliente\nP - Produto\nF - Funcionário\n>");
+                     System.out.print("\nO que deseja buscar?\nC - Cliente\nP - Produto\nF - Funcionário\n> ");
 
                      kbd.nextLine();
                      opcao = kbd.next().charAt(0);
@@ -153,9 +153,9 @@ public class Main {
                      {
                              case 'C': // Sobre clientes
                              {
-                                 if(!clientes.isEmpty())
+                                 if(!clientes.isEmpty()) // Verifica se a lista de clientes não está vazia
                                  {
-                                     System.out.print("\nO que deseja saber sobre clientes?\nI - Informções gerais\nV - O mais velho\nJ - O mais jovem\nM - Média das idades\nE - Clientes excluídos>");
+                                     System.out.print("\nO que deseja saber sobre clientes?\nI - Informções gerais\nV - O mais velho\nJ - O mais jovem\nM - Média das idades\nE - Clientes excluídos\n> ");
                                      kbd.nextLine();
                                      opcao = kbd.next().charAt(0);
 
@@ -165,7 +165,7 @@ public class Main {
                                          {
                                              if(!clientes.isEmpty())
                                              {
-                                                 System.out.print("\nQual o nome do cliente que deseja?>");
+                                                 System.out.print("\nQual o nome do cliente que deseja?\n> ");
                                                  kbd.nextLine();
                                                  String buscarPor = kbd.nextLine();
                                                  Cliente.procuraClienteInfo(buscarPor);
@@ -210,17 +210,14 @@ public class Main {
                                          }
 
                                      }
-
-
-
                                  }
                                  else System.out.println("Você ainda não tem nenhum cliente cadastrado");
                                  break;
                              }
 //
-                         case 'P':
+                         case 'P': // Informações sobre um produto
                          {
-                             System.out.print("\nO que deseja saber sobre produtos?\nI - Informções gerais\nC - O mais caro\nB - O mais barato\n>");
+                             System.out.print("\nO que deseja saber sobre produtos?\nI - Informções gerais\nC - O mais caro\nB - O mais barato\n> ");
                              kbd.nextLine();
                              opcao = kbd.next().charAt(0);
                              if(!produtos.isEmpty())
@@ -229,7 +226,7 @@ public class Main {
                                  {
                                      case 'I': // Procura informações sobre o produto
                                      {
-                                         System.out.print("\nComo deseja pesquisar?\nA - Marca\nM - Modelo\nD - Descrição\n>");
+                                         System.out.print("\nComo deseja pesquisar?\nA - Marca\nM - Modelo\nD - Descrição\n> ");
                                          kbd.nextLine();
                                          opcao = kbd.next().charAt(0);
 
@@ -238,7 +235,7 @@ public class Main {
                                              case 'A':
                                              {
                                                  System.out.println();
-                                                 System.out.print("Qual a marca do produto?\n>");
+                                                 System.out.print("Qual a marca do produto?\n> ");
                                                  kbd.nextLine();
                                                  String marca = kbd.nextLine();
                                                  boolean token = false;
@@ -260,7 +257,7 @@ public class Main {
                                              case 'M':
                                              {
                                                  System.out.println();
-                                                 System.out.print("Qual o modelo do produto?\n>");
+                                                 System.out.print("Qual o modelo do produto?\n> ");
                                                  kbd.nextLine();
                                                  String modelo = kbd.nextLine();
                                                  boolean token = false;
@@ -282,7 +279,7 @@ public class Main {
                                              case 'D':
                                              {
                                                  System.out.println();
-                                                 System.out.print("Qual a descrição do produto?\n>");
+                                                 System.out.print("Qual a descrição do produto?\n> ");
                                                  kbd.nextLine();
                                                  String descricao = kbd.nextLine();
                                                  boolean token = false;
@@ -304,8 +301,6 @@ public class Main {
 
 
                                          }
-
-
                                          break;
                                      }
 
@@ -325,13 +320,39 @@ public class Main {
                              else System.out.println("Você ainda não tem nenhum produto cadastrado");
                              break;
                          }
+                         case 'F': // Busca por funcionários
+                             {if(!clientes.isEmpty())
+                                 {
+                                 System.out.print("\nQual o nome do funcionário que deseja?\n> ");
+                                 kbd.nextLine();
+                                 String buscarPor = kbd.nextLine();
+                                 boolean token = false;
+                                 for(Funcionario P : funcionarios)
+                                 {
+                                     if(P.nome.contains(buscarPor))
+                                     {
+                                         token = true;
+                                         P.exibir();
+                                     }
+                                 }
+                                 if(!token)
+                                 {
+                                     System.out.println("O funcionário não pôde ser encontrado.");
+                                 }
+                             } else System.out.printf("Ainda não há nenhum funcionário cadastrado");
+                             break;
+                         }
+                         }
                      }
                      break;
+                case 'S': // Sair
+                {
+                    System.exit(1);
+                    break;
+                }
                  }
-            }
-            System.out.print("\nO que deseja fazer agora?\nS - Sair\nC - continuar\n>");
+            System.out.print("\nO que deseja fazer agora?\nS - Sair\nC - continuar\n> ");
             opcao = kbd.next().charAt(0);
-
         }while (opcao != 'S' && opcao != 's'); // Verifica a resposta do usuário
-    }
+    } // Fim body main
 }

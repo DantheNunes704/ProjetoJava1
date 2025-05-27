@@ -7,11 +7,12 @@ import projeto.Main;
 import static projeto.Main.kbd;
 
 public class Cliente extends Pessoa implements IPessoa {
-    //atributos
+    // Atributos
     protected String cpf;
     protected int compras;
     protected boolean idoso;
 
+    // Construtor
     public Cliente(){
         super("", 0);
         this.cpf = "";
@@ -26,7 +27,7 @@ public class Cliente extends Pessoa implements IPessoa {
         this.idoso = idoso;
     }
 
-    //gets e sets
+    // Gets e sets
     public String getCpf() {
         return cpf;
     }
@@ -101,7 +102,7 @@ public class Cliente extends Pessoa implements IPessoa {
         boolean token = false; //verifica se o cliente foi encontrado
         for (Cliente P : Main.clientes)
         {
-            if(P.nome.startsWith(buscarPor)) // Busca pelo nome do cliente
+            if(P.nome.contains(buscarPor)) // Busca pelo nome do cliente
             {
                 token = true;
                 System.out.print("\nCliente encontrado com sucesso> ");

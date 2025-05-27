@@ -6,10 +6,13 @@ import projeto.Pessoa;
 import static projeto.Main.kbd;
 
 public class Funcionario extends Pessoa implements IPessoa {
+
+    //Atrubutos
     protected double salario;
     protected double comissao;
     protected int vendas;
 
+    // Construtor
     public Funcionario()
     {
         super("", 0);
@@ -25,6 +28,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         this.vendas = vendas;
     }
 
+    // Gets e sets
     public double getSalario() {
         return salario;
     }
@@ -49,9 +53,7 @@ public class Funcionario extends Pessoa implements IPessoa {
         this.vendas = vendas;
     }
 
-
-
-
+    //Métodos
     @Override
     public void exibir() {
         System.out.println("\n" + nome + ", " + idade + " anos, salário: " + salario + " N. de vendas: " + vendas + ", Comissão: " + comissao + "\n");
@@ -61,20 +63,20 @@ public class Funcionario extends Pessoa implements IPessoa {
     {
         Funcionario novoFuncionario = new Funcionario();
 
-        System.out.print("\nNome do funcionário>");
+        System.out.print("\nNome do funcionário> ");
 
         kbd.nextLine();
         novoFuncionario.setNome(kbd.nextLine());
 
-        System.out.print("Idade do funcionário>");
+        System.out.print("Idade do funcionário> ");
         novoFuncionario.setIdade(kbd.nextInt());
         kbd.nextLine(); // limpa buffer
 
-        System.out.print("Salário do funcionário>");
+        System.out.print("Salário do funcionário> ");
         novoFuncionario.setSalario(kbd.nextInt());
         kbd.nextLine(); // limpa buffer
 
-        System.out.print("Comissão do funcionário>");
+        System.out.print("Comissão do funcionário> ");
         novoFuncionario.setComissao(kbd.nextInt());
         kbd.nextLine(); // limpa buffer
         novoFuncionario.exibir();

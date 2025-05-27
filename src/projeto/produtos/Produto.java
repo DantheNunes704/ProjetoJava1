@@ -7,14 +7,15 @@ import projeto.funcionarios.Funcionario;
 import static projeto.Main.kbd;
 
 public class Produto  {
+
+    // Atributos
     protected double preco;
     protected String descricao;
     protected String modelo;
     protected String marca;
     protected int anolancamento;
 
-    //construtor
-
+    // Construtor
     public Produto(double preco, String descricao, String modelo, String marca, int anolancamento) {
         this.preco = preco;
         this.descricao = descricao;
@@ -31,9 +32,7 @@ public class Produto  {
         this.anolancamento = 0;
     }
 
-    //gets e sets
-
-
+    // Gets e sets
     public double getPreco() {
         return preco;
     }
@@ -74,12 +73,11 @@ public class Produto  {
         this.anolancamento = anoLancamento;
     }
 
-    //métodos
+    // Métodos
     public void mostraInfo()
     {
         System.out.println("Modelo: " + modelo + ", Marca:" + marca + ", Preço: "+ preco + ", Lançado em: " + anolancamento + ", Descrição: " + descricao);
     }
-
 
     public static Produto cadastraProduto()
     {
