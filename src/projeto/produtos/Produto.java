@@ -76,7 +76,7 @@ public class Produto  {
     // Métodos
     public void mostraInfo()
     {
-        System.out.println("Modelo: " + modelo + ", Marca:" + marca + ", Preço: "+ preco + ", Lançado em: " + anolancamento + ", Descrição: " + descricao);
+        System.out.println("Modelo: " + modelo + ", Marca: " + marca + ", Preço: "+ preco + ", Lançado em: " + anolancamento + ", Descrição: " + descricao);
     }
 
     public static Produto cadastraProduto()
@@ -128,6 +128,50 @@ public class Produto  {
             }
         }
         if(!token) System.out.println("O produto não foi encontrado.");
+    }
+
+    public static void procuraPMarca(String marca)
+    {
+        boolean token = false;
+        for (Produto P : Main.produtos) {
+            if (P.getMarca().equals(marca)) {
+                token = true;
+                System.out.println();
+                P.mostraInfo();
+            }
+        }
+        if (!token) {
+            System.out.println("O produto não pôde ser encontrado.");
+        }
+    }
+
+    public static void procuraPModelo(String modelo)
+    {
+        boolean token = false;
+        for (Produto P : Main.produtos) {
+            if (P.getModelo().equals(modelo)) {
+                System.out.println();
+                token = true;
+                P.mostraInfo();
+            }
+        }
+        if (!token) {
+            System.out.println("O produto não pôde ser encontrado.");
+        }
+    }
+    public static void procuraPDescricao(String descricao)
+    {
+        boolean token = false;
+        for (Produto P : Main.produtos) {
+            if (P.getDescricao().equals(descricao)) {
+                System.out.println();
+                token = true;
+                P.mostraInfo();
+            }
+        }
+        if (!token) {
+            System.out.println("O produto não pôde ser encontrado.");
+        }
     }
 
     public static void procuraMenorPreco() // Produto com menor preço

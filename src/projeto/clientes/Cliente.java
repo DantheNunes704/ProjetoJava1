@@ -174,14 +174,12 @@ public class Cliente extends Pessoa implements IPessoa {
         System.out.println("\nA média das idades dos clientes é de> " + soma/divide);
     }
 
-    public static void procuraExcluidos()
-    {
+    public static void procuraExcluidos() {
         int aux = 1;
-        for (Cliente P : Main.clientesExcl)
-        {
-            System.out.printf("Cleinte excluído número %d> " + aux);
+        for (Cliente P : Main.clientesExcl) {
+            System.out.printf("Cleinte excluído número %d> ", aux);
             P.exibir();
-            aux ++;
+            aux++;
         }
     }
 }

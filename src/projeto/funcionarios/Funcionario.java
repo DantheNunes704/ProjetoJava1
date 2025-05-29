@@ -1,6 +1,7 @@
 package projeto.funcionarios;
 
 import projeto.IPessoa;
+import projeto.Main;
 import projeto.Pessoa;
 
 import static projeto.Main.kbd;
@@ -82,5 +83,21 @@ public class Funcionario extends Pessoa implements IPessoa {
         novoFuncionario.exibir();
 
         return novoFuncionario;
+    }
+    public static void procuraFuncionarioInfo(String nome)
+    {
+        boolean token = false;
+        for (Funcionario P : Main.funcionarios)
+        {
+            if(P.nome.contains(nome))
+            {
+                token = true;
+                P.exibir();
+            }
+        }
+        if (!token)
+        {
+            System.out.println("\nO funcionário não pôde ser localizado.");
+        }
     }
 }

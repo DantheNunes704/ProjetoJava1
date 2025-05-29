@@ -143,212 +143,162 @@ public class Main {
                 } // Fim exclusão *****
 
                 case 'B': // Buscar
-                 {
-                     System.out.print("\nO que deseja buscar?\nC - Cliente\nP - Produto\nF - Funcionário\n> ");
-
-                     kbd.nextLine();
-                     opcao = kbd.next().charAt(0);
-
-                     switch (opcao)
-                     {
-                             case 'C': // Sobre clientes
-                             {
-                                 if(!clientes.isEmpty()) // Verifica se a lista de clientes não está vazia
-                                 {
-                                     System.out.print("\nO que deseja saber sobre clientes?\nI - Informções gerais\nV - O mais velho\nJ - O mais jovem\nM - Média das idades\nE - Clientes excluídos\n> ");
-                                     kbd.nextLine();
-                                     opcao = kbd.next().charAt(0);
-
-                                     switch (opcao)
-                                     {
-                                         case 'I': // Informações sobre um cliente
-                                         {
-                                             if(!clientes.isEmpty())
-                                             {
-                                                 System.out.print("\nQual o nome do cliente que deseja?\n> ");
-                                                 kbd.nextLine();
-                                                 String buscarPor = kbd.nextLine();
-                                                 Cliente.procuraClienteInfo(buscarPor);
-                                             }
-                                             break;
-                                         }
-
-                                         case 'V': // O mais velho
-                                         {
-                                             Cliente.procuraMaisvelho();
-                                             break;
-                                         }
-
-                                         case 'J': // O mais jovem
-                                         {
-                                             Cliente.procuraMaisJovem();
-                                             break;
-                                         }
-
-                                         case '>': // Maiores de 60
-                                         {
-                                             Cliente.quantMaioresDe60();
-                                             break;
-                                         }
-
-                                         case '<': // Menores de 18
-                                         {
-                                             Cliente.quantMenoresde18();
-                                             break;
-                                         }
-
-                                         case 'M': // Média das idades dos clientes
-                                         {
-                                             Cliente.quantMediaAnos();
-                                             break;
-                                         }
-
-                                         case 'E': // CLientes excluídos
-                                         {
-                                             Cliente.procuraExcluidos();
-                                             break;
-                                         }
-
-                                     }
-                                 }
-                                 else System.out.println("Você ainda não tem nenhum cliente cadastrado");
-                                 break;
-                             }
-//
-                         case 'P': // Informações sobre um produto
-                         {
-                             System.out.print("\nO que deseja saber sobre produtos?\nI - Informções gerais\nC - O mais caro\nB - O mais barato\n> ");
-                             kbd.nextLine();
-                             opcao = kbd.next().charAt(0);
-                             if(!produtos.isEmpty())
-                             {
-                                 switch (opcao)
-                                 {
-                                     case 'I': // Procura informações sobre o produto
-                                     {
-                                         System.out.print("\nComo deseja pesquisar?\nA - Marca\nM - Modelo\nD - Descrição\n> ");
-                                         kbd.nextLine();
-                                         opcao = kbd.next().charAt(0);
-
-                                         switch (opcao)
-                                         {
-                                             case 'A':
-                                             {
-                                                 System.out.println();
-                                                 System.out.print("Qual a marca do produto?\n> ");
-                                                 kbd.nextLine();
-                                                 String marca = kbd.nextLine();
-                                                 boolean token = false;
-                                                 for (Produto P : produtos)
-                                                 {
-                                                     if(P.getMarca().equals(marca))
-                                                     {
-                                                         token = true;
-                                                         System.out.println();
-                                                         P.mostraInfo();
-                                                     }
-                                                 }
-                                                 if (!token)
-                                                 {
-                                                     System.out.println("O produto não pôde ser encontrado.");
-                                                 }
-                                                 break;
-                                             }
-                                             case 'M':
-                                             {
-                                                 System.out.println();
-                                                 System.out.print("Qual o modelo do produto?\n> ");
-                                                 kbd.nextLine();
-                                                 String modelo = kbd.nextLine();
-                                                 boolean token = false;
-                                                 for (Produto P : produtos)
-                                                 {
-                                                     if(P.getModelo().equals(modelo))
-                                                     {
-                                                         System.out.println();
-                                                         token = true;
-                                                         P.mostraInfo();
-                                                     }
-                                                 }
-                                                 if (!token)
-                                                 {
-                                                     System.out.println("O produto não pôde ser encontrado.");
-                                                 }
-                                                 break;
-                                             }
-                                             case 'D':
-                                             {
-                                                 System.out.println();
-                                                 System.out.print("Qual a descrição do produto?\n> ");
-                                                 kbd.nextLine();
-                                                 String descricao = kbd.nextLine();
-                                                 boolean token = false;
-                                                 for (Produto P : produtos)
-                                                 {
-                                                     if(P.getDescricao().equals(descricao))
-                                                     {
-                                                         System.out.println();
-                                                         token = true;
-                                                         P.mostraInfo();
-                                                     }
-                                                 }
-                                                 if (!token)
-                                                 {
-                                                     System.out.println("O produto não pôde ser encontrado.");
-                                                 }
-                                                 break;
-                                             }
-
-
-                                         }
-                                         break;
-                                     }
-
-                                     case 'B': // Procura o produto mais barato
-                                     {
-                                         Produto.procuraMenorPreco();
-                                         break;
-                                     }
-
-                                     case 'C': // Procura o produto mais caro
-                                     {
-                                         Produto.procuraMaiorPreco();
-                                         break;
-                                     }
-                                 }
-                             }
-                             else System.out.println("Você ainda não tem nenhum produto cadastrado");
-                             break;
-                         }
-                         case 'F': // Busca por funcionários
-                             {if(!clientes.isEmpty())
-                                 {
-                                 System.out.print("\nQual o nome do funcionário que deseja?\n> ");
-                                 kbd.nextLine();
-                                 String buscarPor = kbd.nextLine();
-                                 boolean token = false;
-                                 for(Funcionario P : funcionarios)
-                                 {
-                                     if(P.nome.contains(buscarPor))
-                                     {
-                                         token = true;
-                                         P.exibir();
-                                     }
-                                 }
-                                 if(!token)
-                                 {
-                                     System.out.println("O funcionário não pôde ser encontrado.");
-                                 }
-                             } else System.out.printf("Ainda não há nenhum funcionário cadastrado");
-                             break;
-                         }
-                         }
-                     }
-                     break;
-                case 'S': // Sair
                 {
-                    System.exit(1);
-                    break;
+                    System.out.print("\nO que deseja buscar?\nC - Cliente\nP - Produto\nF - Funcionário\n> ");
+
+                    kbd.nextLine();
+                    opcao = kbd.next().charAt(0);
+
+                    switch (opcao) {
+                        case 'C': // Sobre clientes
+                        {
+                            if (!clientes.isEmpty()) // Verifica se a lista de clientes não está vazia
+                            {
+                                System.out.print("\nO que deseja saber sobre clientes?\nI - Informções gerais\nV - O mais velho\nJ - O mais jovem\nM - Média das idades\nE - Clientes excluídos\n> - Clientes maiores que 60\n< - Clientes menores que 18\n> ");
+                                kbd.nextLine();
+                                opcao = kbd.next().charAt(0);
+
+                                switch (opcao) {
+                                    case 'I': // Informações sobre um cliente
+                                    {
+                                        if (!clientes.isEmpty()) {
+                                            System.out.print("\nQual o nome do cliente que deseja?\n> ");
+                                            kbd.nextLine();
+                                            String buscarPor = kbd.nextLine();
+                                            Cliente.procuraClienteInfo(buscarPor);
+                                        }
+                                        break;
+                                    }
+
+                                    case 'V': // O mais velho
+                                    {
+                                        Cliente.procuraMaisvelho();
+                                        break;
+                                    }
+
+                                    case 'J': // O mais jovem
+                                    {
+                                        Cliente.procuraMaisJovem();
+                                        break;
+                                    }
+
+                                    case '>': // Maiores de 60
+                                    {
+                                        Cliente.quantMaioresDe60();
+                                        break;
+                                    }
+
+                                    case '<': // Menores de 18
+                                    {
+                                        Cliente.quantMenoresde18();
+                                        break;
+                                    }
+
+                                    case 'M': // Média das idades dos clientes
+                                    {
+                                        Cliente.quantMediaAnos();
+                                        break;
+                                    }
+
+                                    case 'E': // CLientes excluídos
+                                    {
+                                        if(!clientesExcl.isEmpty())
+                                        {
+                                            Cliente.procuraExcluidos();
+                                        }
+                                        else System.out.println("Não há nenhum cliente excluído.");
+                                        break;
+                                    }
+
+                                }
+                            } else System.out.println("Você ainda não tem nenhum cliente cadastrado");
+                            break;
+                        }
+//
+                        case 'P': // Informações sobre um produto
+                        {
+                            System.out.print("\nO que deseja saber sobre produtos?\nI - Informções gerais\nC - O mais caro\nB - O mais barato\nM - A média do preço\nA - Preço acima da média> ");
+                            kbd.nextLine();
+                            opcao = kbd.next().charAt(0);
+                            if (!produtos.isEmpty()) {
+                                switch (opcao) {
+                                    case 'I': // Procura informações sobre o produto
+                                    {
+                                        System.out.print("\nComo deseja pesquisar?\nA - Marca\nM - Modelo\nD - Descrição\n> ");
+                                        kbd.nextLine();
+                                        opcao = kbd.next().charAt(0);
+
+                                        switch (opcao) {
+                                            case 'A': {
+                                                System.out.println();
+                                                System.out.print("Qual a marca do produto?\n> ");
+                                                kbd.nextLine();
+                                                String marca = kbd.nextLine();
+                                                Produto.procuraPMarca(marca);
+                                                break;
+                                            }
+                                            case 'M': {
+                                                System.out.println();
+                                                System.out.print("Qual o modelo do produto?\n> ");
+                                                kbd.nextLine();
+                                                String modelo = kbd.nextLine();
+                                                Produto.procuraPModelo(modelo);
+                                                break;
+                                            }
+                                            case 'D': {
+                                                System.out.println();
+                                                System.out.print("Qual a descrição do produto?\n> ");
+                                                kbd.nextLine();
+                                                String descricao = kbd.nextLine();
+                                                Produto.procuraPDescricao(descricao);
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+
+                                    case 'B': // Procura o produto mais barato
+                                    {
+                                        Produto.procuraMenorPreco();
+                                        break;
+                                    }
+
+
+                                    case 'C': // Procura o produto mais caro
+                                    {
+                                        Produto.procuraMaiorPreco();
+                                        break;
+                                    }
+
+                                    case 'M': // Média de preço dos produtos
+                                    {
+                                        Produto.procuraMediaPreco();
+                                    }
+
+                                    case 'A': // Quantidade de produtos com preço acima da média
+                                    {
+                                        Produto.procuraAcimadaMedia();
+                                    }
+                                }
+                            } else System.out.println("Você ainda não tem nenhum produto cadastrado");
+                            break;
+                        }
+                        case 'F': // Informações sobre um funcionário
+                        {
+                            System.out.println("Qual o nome do funcionário que deseja procurar?");
+                            kbd.nextLine();
+                            String nome = kbd.nextLine();
+                            Funcionario.procuraFuncionarioInfo(nome);
+                            break;
+                        }
+
+                        case 'S': // Sair
+                        {
+                            System.exit(1);
+                            break;
+                        }
+                        }
+
                 }
                  }
             System.out.print("\nO que deseja fazer agora?\nS - Sair\nC - continuar\n> ");
